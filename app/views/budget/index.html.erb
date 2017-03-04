@@ -1,0 +1,111 @@
+<div id="budget-container" class="col-xs-12">
+
+  <header>
+
+  <h1>Budget</h1>
+
+  <nav>
+
+  <ul>
+    <li><%= link_to 'Income', 'income' %></li>
+    <li><%= link_to 'Configuration', 'configuration' %></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  </nav>
+
+    <div class="clear-fix"></div>
+  </header>
+
+
+  <div id="budget">
+
+    <table>
+      <thead>
+      <!-- Years -->
+        <tr>
+          <td></td>
+      <% @timeline.each do |i| %>
+
+          <td align="center" colspan="<%= i.last.count %>">
+            <%= i.first %>
+          </td>
+      <% end  %>
+        </tr>
+
+      <tr>
+        <td></td>
+        <% @timeline.each do |i| %>
+
+            <% i.last.each do |month| %>
+            <td><%= month[:month] %></td>
+
+            <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td>Days</td>
+        <% @timeline.each do |year, months| %>
+
+            <% months.each do |month| %>
+                <td><%= month[:days] %></td>
+
+            <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td>Hours</td>
+        <% @timeline.each do |year, months| %>
+
+            <% months.each do |month| %>
+                <td><%= month[:hours] %></td>
+
+            <% end %>
+        <% end %>
+      </tr>
+
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+
+
+      <!-- Incomes -->
+
+            <% @incomes_for_months.each do |income_id, years| %>
+        <tr>
+              <% income = Income.find(income_id) %>
+
+              <td><%= income.name %>'s Income</td>
+
+                <% years.each do |year, months| %>
+                    <% months.each do |month, income| %>
+                        <td><%= number_to_currency(income, {:precision => 0}) %></td>
+                    <% end %>
+                <% end %>
+        </tr>
+            <% end %>
+
+        <!-- Empty Row-->
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+
+        <tr>
+          <td>Patrick's Cum Income</td>
+       <% @patrickTotals.each do |total_incomes| %>
+            <td><%= number_to_currency(total_incomes, {:precision => 0}) %></td>
+        <% end %>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

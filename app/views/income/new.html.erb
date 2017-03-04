@@ -1,0 +1,30 @@
+<div id="budget-container" class="col-xs-12">
+  <h1>New Income</h1>
+
+
+  <%= form_for @income, url: {action: 'create'} do |f| %>
+
+      <div class="field-container">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field-container">
+        <%= f.label :income %>
+        <%= f.number_field :income, {step: 0.5} %>
+      </div>
+
+      <div class="field-container">
+        <%= f.label :interval %>
+        <%= f.select(:interval, options_for_select(%w'hour week fortnight monthly annual')) %>
+      </div>
+
+      <div class="field-container">
+        <%= f.label :tax %>
+        <%= f.select :tax, options_for_select(%w'gross net') %>
+      </div>
+
+
+      <%= f.submit %>
+  <% end %>
+</div>

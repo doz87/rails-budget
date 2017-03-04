@@ -1,0 +1,28 @@
+<div id="budget-container" class="col-xs-12">
+  <h1>Incomes</h1>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Back', root_path %></li>
+      <li><%= link_to 'New', new_income_path %></li>
+
+    </ul>
+  </nav>
+
+  <div id="incomes">
+    <% @incomes.each do |income| %>
+
+       <div class="income">
+         <ul>
+           <li><%= income.name %></li>
+           <li><%= income.income %></li>
+           <li><%= income.interval %></li>
+         </ul>
+
+
+       </div>
+
+    <% end %>
+  </div>
+
+</div>
