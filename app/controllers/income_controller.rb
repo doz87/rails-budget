@@ -17,12 +17,30 @@ class IncomeController < ApplicationController
     end
   end
 
+  def update
+    @income = Income.find(params[:id])
+
+    if @income.update_attributes(income_params)
+      redirect_to income_index_path
+    end
+  end
+
+  def edit
+    @income = Income.find(params[:id])
+  end
 
   def show
     @income = Income.find(params[:id])
   end
 
+  def destroy
+    @income = Income.find(params[:id])
 
+    if @income.destroy
+      redirect_to income_index_path
+    end
+
+  end
 
   private
 

@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20170121114411) do
   end
 
   create_table "expenses", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.text     "description"
+    t.integer  "amount"
+    t.string   "type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "incomes", force: :cascade do |t|

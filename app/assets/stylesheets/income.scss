@@ -5,4 +5,15 @@
 #incomes {
   float:left;
   clear:left;
+
+  li {
+    float:left;
+
+    &:last-child {
+      margin-left: 5px;
+    }
+  }
+
+
 }
+
