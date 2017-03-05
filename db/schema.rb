@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 20170305034044) do
     t.text     "description"
     t.integer  "amount"
     t.string   "type"
-    t.integer  "expense_category_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["expense_category_id"], name: "index_expenses_on_expense_category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "imports", force: :cascade do |t|

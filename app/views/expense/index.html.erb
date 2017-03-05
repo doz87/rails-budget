@@ -31,13 +31,14 @@
 
           <div class="assign-to-expense">
 
-          <%= form_for(import, {:url => {method: 'update'}, remote: true}) do |f| %>
+          <%= form_for(import, {remote: true}) do |f| %>
 
             <div class="field-container">
               <%= f.label :expense_category_id, 'Assign to Category' %>
               <%= f.select(:expense_category_id, ExpenseCategory.all.collect {|e| [e.name, e.id]}) %>
+              <%= f.submit %>
               <div class="clear-fix"></div>
-              <%= link_to('Add Category for Expense', new_expense_path(import))  %>
+              <%= link_to('Add Category for Expense', new_expense_category_path(import_id: import.id))  %>
             </div>
 
           <% end %>
