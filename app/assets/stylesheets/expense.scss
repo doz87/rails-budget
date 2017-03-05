@@ -1,3 +1,36 @@
 // Place all the styles related to the expense controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#budget-container {
+
+
+  nav {
+    margin-bottom:15px;
+  }
+
+  #imported {
+
+    padding:15px;
+
+    .import {
+      clear:left;
+      margin: 10px;
+      border:1px solid #efefef;
+      border-radius: 5px;
+      padding:20px;
+      float:left;
+      min-width:700px;
+
+      ul {
+        word-wrap: break-word;
+      }
+
+
+
+    }
+
+  }
+
+
+}

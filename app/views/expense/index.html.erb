@@ -1,27 +1,77 @@
-<div id="budget-container" class="col-xs-12">
+<div id="budget-container" class="container-fluid">
   <h1>Expenses</h1>
 
-  <nav>
+  <nav class="col-12">
     <ul>
       <li><%= link_to 'Back', root_path %></li>
-      <li><%= link_to 'New', new_expense_path %></li>
+      <li><%= link_to 'New Expense', new_expense_path %></li>
+      <li><%= link_to 'New Category', new_expense_category_path %></li>
       <li><%= link_to 'Import', import_expense_index_path %></li>
 
     </ul>
   </nav>
 
-  <div id="expenses">
-    <% @expenses.each do |expense| %>
+  <div class="clear-fix"></div>
 
-        <div class="expense">
+  <% if @imports.count > 0 %>
+  <div id="imported" class="col-12">
+    <h2 class="col-12">Assign imports to an Expense</h2>
+
+    <% @imports.each do |import| %>
+
+        <div class="import">
+
+          <h4>New import</h4>
+
           <ul>
-            <li><%= link_to(expense.name, edit_expense_path(expense.id)) %></li>
+            <li>Amount: <%= number_to_currency(-import.amount.to_f) %></li>
+            <li>Keywords: <%= import.keywords %></li>
+            <li>Date: <%= import.date.strftime("%F") %></li>
           </ul>
 
+          <div class="assign-to-expense">
+
+          <%= form_for(import, {:url => {method: 'update'}, remote: true}) do |f| %>
+
+            <div class="field-container">
+              <%= f.label :expense_category_id, 'Assign to Category' %>
+              <%= f.select(:expense_category_id, ExpenseCategory.all.collect {|e| [e.name, e.id]}) %>
+              <div class="clear-fix"></div>
+              <%= link_to('Add Category for Expense', new_expense_path(import))  %>
+            </div>
+
+          <% end %>
+          </div>
+
+        </div>
+
+    <% end %>
+
+
+  </div>
+
+    <% end %>
+
+
+  <div class="clear-fix"></div>
+
+
+
+  <% if @expense_categories.count > 0 %>
+
+
+  <div id="categories">
+    <h2>Categories</h2>
+    <% @expense_categories.each do |category| %>
+
+        <div class="category">
+          <ul>
+          </ul>
 
         </div>
 
     <% end %>
   </div>
 
+      <% end %>
 </div>

@@ -7,6 +7,8 @@ class CreateExpenses < ActiveRecord::Migration[5.0]
       t.integer :amount
       t.string :type
 
+      t.references :expense_category
+
       t.timestamps
     end
   end

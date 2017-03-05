@@ -11,36 +11,36 @@ Income.create(
     interval: 'monthly',
     tax: 'net'
 )
-
-Expense.create(
-    name: 'Rent',
-    amount: 2129,
-    interval: 'fixed'
-)
-
-Expense.create(
-    name: 'Internet',
-    amount: 95,
-    interval: 'fixed'
-)
-Expense.create(
-    name: 'Streaming Services',
-    amount: 10,
-    interval: 'fixed'
-)
-Expense.create(
-    name: 'Optus',
-    amount: 160,
-    interval: 'fixed'
-)
-Expense.create(
-    name: 'Car Loan',
-    amount: 613,
-    interval: 'fixed'
-)
-Expense.create(
-    name: 'Insurance',
-    amount: 340,
-    interval: 'fixed'
-)
-
+#
+# Expense.create(
+#     name: 'Rent',
+#     amount: 2129,
+#     type: 'fixed'
+# )
+#
+# Expense.create(
+#     name: 'Internet',
+#     amount: 95,
+#     type: 'fixed'
+# )
+# Expense.create(
+#     name: 'Streaming Services',
+#     amount: 10,
+#     type: 'fixed'
+# )
+# Expense.create(
+#     name: 'Optus',
+#     amount: 160,
+#     type: 'fixed'
+# )
+# Expense.create(
+#     name: 'Car Loan',
+#     amount: 613,
+#     type: 'fixed'
+# )
+# Expense.create(
+#     name: 'Insurance',
+#     amount: 340,
+#     type: 'fixed'
+# )
+#

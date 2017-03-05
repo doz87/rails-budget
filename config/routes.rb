@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :expense_category
+
 end
