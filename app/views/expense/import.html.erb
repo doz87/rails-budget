@@ -1,0 +1,28 @@
+<div id="budget-container" class="col-xs-12">
+  <h1>Import Expenses</h1>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Back', root_path %></li>
+    </ul>
+  </nav>
+
+  <div id="import">
+    <%= form_tag(import_expense_index_path, multipart: true) do  %>
+
+        <div class="field-container">
+          <%= label_tag 'File' %>
+          <%= file_field_tag :file %>
+        </div>
+
+        <div class="field-container">
+          <%= label_tag 'Month' %>
+          <%= select_tag(:month, options_for_select(%w'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec')) %>
+        </div>
+
+
+        <%= submit_tag %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div id="budget-container" class="col-xs-12">
+  <h1>Expenses</h1>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Back', root_path %></li>
+      <li><%= link_to 'New', new_expense_path %></li>
+      <li><%= link_to 'Import', import_expense_index_path %></li>
+
+    </ul>
+  </nav>
+
+  <div id="expenses">
+    <% @expenses.each do |expense| %>
+
+        <div class="expense">
+          <ul>
+            <li><%= link_to(expense.name, edit_expense_path(expense.id)) %></li>
+          </ul>
+
+
+        </div>
+
+    <% end %>
+  </div>
+
+</div>
